@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+     <button onclick="refresh()">Refresh</button>
+     
+     <script>
+       var base = "https://api.coinbase.com"
+       var path = "/v2/prices/btc-usd/spot"
+       
+       function refresh() {
+         fetch(base + path).then(convert).then(show)
+       }
+       function convert(response) {
+         return response.json()
+       }
+       function show(result){
+	    alert(result.data.amount)
+       }
+     </script>
+    </body>
+</html>
